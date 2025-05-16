@@ -50,6 +50,21 @@ function processValue(value: string | number): number {
     }
 }
 
+interface Product {
+    name: string;
+    price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null {
+    if (products.length === 0) return null
+    if (products) {
+        const heistPrice = Math.max(...products.map(product => product.price));
+
+        const expensiveProduct = products.find(product => product.price === heistPrice)
+        return expensiveProduct || null;
+    }
+    return null;
+}
 
 
 
